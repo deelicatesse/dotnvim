@@ -29,7 +29,7 @@ highlight Identifier    guifg=#8B9698
 "highlight LineNr        guifg=#474A4D
 highlight LineNrAbove   guifg=#888888 guibg=#222222
 highlight LineNrBelow   guifg=#888888 guibg=#222222
-highlight LineNr        guifg=#d6d2c8
+highlight LineNr        guifg=#3B3B3B
 highlight MatchParen    guifg=#FFFEDB
 highlight NonText       guifg=#303030
 highlight Operator      guifg=#DEBF7C
