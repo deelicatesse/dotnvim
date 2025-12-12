@@ -1,8 +1,8 @@
 return {
   'nikolvs/vim-sunbather',
   config = function ()
-    vim.opt.termguicolors= true,
-    vim.cmd([[colorscheme sunbather]])
+    vim.opt.termguicolors= true
+    --vim.cmd([[colorscheme sunbather]]) -- add , after true,
   end,
 
 }

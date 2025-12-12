@@ -16,6 +16,7 @@ local codebg= "#0E1116"
 local commet= "#797979"--"#767676" --"#121212"
 local linenr= "#3B3B3B"
 local lightwhite= "#CAD6EB"--"#EDF1F8"
+local statusline= "#2C2C2C"
 -- HIGHLIGHTS
 local set = vim.api.nvim_set_hl
 
@@ -45,6 +46,13 @@ set(0, "Function", { fg = fg })
 set(0, "Folted", { fg = dim, bg = bg })
 
 
+-- MARKDOWN
+for i = 1, 6 do
+  vim.api.nvim_set_hl(0, "RenderMarkdownH"..i.."Bg", {bg = bg})
+end
+vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = bg })
+vim.api.nvim_set_hl(0, "RenderMarkdownInlineCode", { bg = bg })
+
 -- HELPERS
 vim.api.nvim_set_hl(0, "Delimiter", { fg = fg , italic = true})
 vim.api.nvim_set_hl(0, "Special", { fg = fg })
@@ -52,8 +60,9 @@ vim.api.nvim_set_hl(0, "@variable", {fg = lightwhite})
 vim.api.nvim_set_hl(0, "@keyword.function", {fg = fg, italic = true})
 vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = lightwhite, italic = true })
 vim.api.nvim_set_hl(0, "@constructor", { fg = fg })
-
-
+vim.api.nvim_set_hl(0, "statusLine", {fg = fg, bg = bg})
+vim.api.nvim_set_hl(0, "statusLineNC", {fg = fg, bg = statusline})
+--IncSearch
 
 
 
