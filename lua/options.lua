@@ -4,6 +4,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+vim.opt.cursorline = true
 vim.cmd("syntax on")
 
 -- GLOBAL THEME
@@ -15,7 +16,7 @@ vim.cmd([[colorscheme brutalist]])
 -- GOOLORD
 vim.cmd([[highlight AlphaHeader guifg=#ff5555]])
 
--- YAML
+--[[ YAML
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "yaml",
     callback = function()
@@ -26,6 +27,8 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.expandtab = true
     end,
 })
+--]]
+
 
 --AUTOINDENT .LUA
 --vim.api.nvim_create_autocmd("FileType", {

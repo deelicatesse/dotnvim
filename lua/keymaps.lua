@@ -16,34 +16,34 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeFindFileToggle<CR>")
 
 -- OPEN BELOW TERMINAL
 vim.keymap.set("n", "<leader>t", function()
-  local term_buf = nil
-  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.api.nvim_buf_get_option(buf, "buftype") == "terminal" then
-      term_buf = buf
-      break
+    local term_buf = nil
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_get_option(buf, "buftype") == "terminal" then
+            term_buf = buf
+            break
+        end
     end
-  end
 
-  if term_buf then
-    vim.api.nvim_buf_delete(term_buf, { force = true }) -- cierra el terminal
-  else
-    vim.cmd("botright split | terminal") -- abre abajo
-  end
+    if term_buf then
+        vim.api.nvim_buf_delete(term_buf, { force = true }) -- cierra el terminal
+    else
+        vim.cmd("botright split | terminal")                -- abre abajo
+    end
 end, { desc = "Toggle terminal abajo" })
 
 
 -- EXECUTE CURRENT .py
 vim.keymap.set("n", "<leader>r", function()
-  local filename = vim.fn.expand("%:p") -- ruta completa del archivo actual
-  local output = vim.fn.system({ "python3", filename })
+    local filename = vim.fn.expand("%:p") -- ruta completa del archivo actual
+    local output = vim.fn.system({ "python3", filename })
 
-  -- Mostrar solo la salida del programa en un buffer flotante
-  vim.notify(output, vim.log.levels.INFO, { title = "Salida Python" })
+    -- Mostrar solo la salida del programa en un buffer flotante
+    vim.notify(output, vim.log.levels.INFO, { title = "Salida Python" })
 end, { desc = "Ejecutar archivo Python" })
 
 
 -- EXECUTE CURRENT .lua
-vim.keymap.set("n", "<leader>l", ":!lua %<CR>", { noremap = true, silent = true})
+vim.keymap.set("n", "<leader>l", ":!lua %<CR>", { noremap = true, silent = true })
 
 
 --- TREESITTER
@@ -56,12 +56,12 @@ vim.keymap.set("n", "vm", function() ts_select.node_decremental() end)
 
 -- Mover entre splits con Alt + h/j/k/l
 -- MOVE WINDOWS
-vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "left"}) --h
+vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "left" })  --h
 vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = "right" }) --j
-vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = "down" }) --k
-vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = "up" }) --l
+vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = "down" })  --k
+vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = "up" })    --l
 --TAB
-vim.keymap.set("n", "<Tab>", "<C-w>w", { desc = "tab windows"})
+vim.keymap.set("n", "<Tab>", "<C-w>w", { desc = "tab windows" })
 
 -- Alt + DIR
 -- Mover entre splits desde terminal con Alt + dirección
@@ -81,17 +81,16 @@ vim.keymap.set("n", "<leader>s", ":split")
 -- KULALA
 -- keymaps separados y seguros
 vim.keymap.set("n", "<leader>hh", function()
-  local ok, kulala = pcall(require, "kulala")
-  if ok then kulala.run() end
+    local ok, kulala = pcall(require, "kulala")
+    if ok then kulala.run() end
 end, { desc = "Send HTTP request" })
 
 vim.keymap.set("n", "<leader>ha", function()
-  local ok, kulala = pcall(require, "kulala")
-  if ok then kulala.run_all() end
+    local ok, kulala = pcall(require, "kulala")
+    if ok then kulala.run_all() end
 end, { desc = "Send all HTTP requests" })
 
 vim.keymap.set("n", "<leader>hs", function()
-  local ok, kulala = pcall(require, "kulala")
-  if ok then kulala.open_scratchpad() end
+    local ok, kulala = pcall(require, "kulala")
+    if ok then kulala.open_scratchpad() end
 end, { desc = "Open HTTP scratchpad" })
-
